@@ -29,9 +29,12 @@ export default function Game() {
   useEffect(() => {
     const indexLastCard = initCards.indexOf(drawnCards[drawnCards.length - 2]);
     const indexDrawnCard = initCards.indexOf(drawnCards[drawnCards.length - 1]);
+
+    console.log({ indexDrawnCard, indexLastCard});
+
     if (
-      (indexLastCard < indexDrawnCard && guess === "higher") ||
-      (indexLastCard > indexDrawnCard && guess === "lower")
+      (initCards[indexLastCard] < initCards[indexDrawnCard] && guess === "higher") ||
+      (initCards[indexLastCard] > initCards[indexDrawnCard] && guess === "lower")
     ) {
       setScore((score) => score + 1);
     }
